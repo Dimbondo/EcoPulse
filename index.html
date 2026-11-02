@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPulse - Climate-Economics Policy Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EcoPulse Climate-Economics Policy Simulator</h1>
+            <p> Congressional App Challenge - Analyzing policy impacts on GDP, emissions, and temperature</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <h2>Policy Parameters</h2>
+                <div class="input-group">
+                    <label for="carbonTax">Carbon Tax: $<span id="carbonTaxValue">50</span>/ton</label>
+                    <input type="range" id="carbonTax" min="0" max="200" value="50">
+                </div>
+                
+                <div class="input-group">
+                    <label for="greenSubsidies">Green Subsidies: $<span id="greenSubsidiesValue">20</span>B</label>
+                    <input type="range" id="greenSubsidies" min="0" max="100" value="20">
+                </div>
+                
+                <div class="input-group">
+                    <label for="fossilRestrictions">Fossil Fuel Restrictions: <span id="fossilRestrictionsValue">30</span>%</label>
+                    <input type="range" id="fossilRestrictions" min="0" max="100" value="30">
+                </div>
+                
+                <button id="simulateBtn">Run Simulation</button>
+            </div>
+
+            <div class="output-section">
+                <h2>Simulation Results</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>GDP Growth Rate</h3>
+                        <p class="result-value" id="gdpGrowth">3.00%</p>
+                        <p class="result-description">Annual economic growth rate</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Carbon Emissions</h3>
+                        <p class="result-value" id="carbonEmissions">36.0 GT</p>
+                        <p class="result-description">Global CO2 emissions</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Global Temperature Rise</h3>
+                        <p class="result-value" id="temperatureRise">1.10°C</p>
+                        <p class="result-description">Average temperature increase</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation">
+                <h2>Policy Impact Analysis</h2>
+                <div id="analysisText">
+                    <p>Adjust the policy parameters to see how different combinations of Carbon Tax, Green Subsidies, and Fossil Fuel Restrictions affect macroeconomic outcomes.</p>
+                    <p>The simulation models non-linear feedback loops with diminishing returns and lag effects for realistic economic behavior.</p>
+                </div>
+                <div id="alertsContainer"></div>
+                <div id="chartContainer" style="margin-top: 20px; height: 300px;">
+                    <canvas id="simulationChart"></canvas>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>EcoPulse Climate-Economics Policy Simulator | Congressional App Challenge</p>
+        </footer>
+    </div>
+
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
